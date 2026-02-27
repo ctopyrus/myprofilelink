@@ -55,6 +55,21 @@ Backend default: `http://localhost:8080`
    - `docker compose ps`
    - `docker compose logs -f app`
 
+## Production Deployment (Docker Compose + HTTPS via Caddy)
+1. Ensure these DNS records point to your server public IP:
+   - `myprofilelink.in`
+   - `www.myprofilelink.in`
+2. Ensure ports `80` and `443` are open on your server/firewall.
+3. Ensure backend env uses HTTPS origin values:
+   - `CLIENT_URL=https://myprofilelink.in`
+   - `CORS_ORIGINS=https://myprofilelink.in,https://www.myprofilelink.in`
+4. Deploy with TLS:
+   - `.\deploy-tls.ps1 -Domain "myprofilelink.in" -AcmeEmail "you@yourdomain.com" -EnvFile .\backend\.env`
+5. Check status/logs:
+   - `docker compose -f docker-compose.tls.yml ps`
+   - `docker compose -f docker-compose.tls.yml logs -f proxy`
+   - `docker compose -f docker-compose.tls.yml logs -f app`
+
 ## Production Deployment (Without Docker)
 1. Frontend build:
    - `cd frontend && npm ci && npm run build`
