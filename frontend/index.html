@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <title>myprofilelink | One link for creators</title>
+
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='12' fill='%237c3aed'/%3E%3Cpath d='M24 26C18.4772 26 14 30.4772 14 36H34C34 30.4772 29.5228 26 24 26Z' fill='white'/%3E%3Ccircle cx='24' cy='17' r='6' fill='white'/%3E%3C/svg%3E"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Analytics 4 -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-XXXXXXXXXX"); // Replace with real ID
+    </script>
+    <!-- End Google Analytics -->
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: "#f5f3ff",
+                100: "#ede9fe",
+                200: "#ddd6fe",
+                300: "#c4b5fd",
+                400: "#a78bfa",
+                500: "#8b5cf6",
+                600: "#7c3aed",
+                700: "#6d28d9",
+                800: "#5b21b6",
+                900: "#4c1d95",
+              },
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+            animation: {
+              "bounce-in": "bounceIn 0.5s cubic-bezier(0.8, 0, 1, 1)",
+              blob: "blob 7s infinite",
+              fadeIn: "fadeIn 0.4s ease-out",
+              slideIn: "slideIn 0.3s ease-out",
+            },
+            keyframes: {
+              bounceIn: {
+                "0%": { transform: "scale(0.8)", opacity: "0" },
+                "100%": { transform: "scale(1)", opacity: "1" },
+              },
+              blob: {
+                "0%": { transform: "translate(0px, 0px) scale(1)" },
+                "33%": {
+                  transform: "translate(30px, -50px) scale(1.1)",
+                },
+                "66%": {
+                  transform: "translate(-20px, 20px) scale(0.9)",
+                },
+                "100%": {
+                  transform: "translate(0px, 0px) scale(1)",
+                },
+              },
+              fadeIn: {
+                "0%": {
+                  opacity: "0",
+                  transform: "translateY(10px)",
+                },
+                "100%": {
+                  opacity: "1",
+                  transform: "translateY(0)",
+                },
+              },
+              slideIn: {
+                "0%": { transform: "translateX(-100%)" },
+                "100%": { transform: "translateX(0)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+
+  </head>
+
+  <body
+    class="bg-white text-gray-900 overflow-x-hidden selection:bg-brand-100 selection:text-brand-900"
+  >
+    <div id="root"></div>
+
+    <!-- ✅ FIXED ENTRY PATH -->
+    <script type="module" src="/src/index.tsx"></script>
+  </body>
+</html>
