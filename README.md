@@ -42,6 +42,19 @@ Backend default: `http://localhost:8080`
 3. Health check:
    - `GET /health` should return `200` and `dbState: 1`
 
+## Production Deployment (Docker Compose)
+1. Ensure env exists:
+   - `backend/.env`
+2. Deploy (build + run + health wait):
+   - `.\deploy.ps1`
+3. Deploy with custom env file/port:
+   - `.\deploy.ps1 -EnvFile "C:\secrets\myprofilelink.env" -Port 8080`
+4. Manual compose command (alternative):
+   - `docker compose up -d --build --remove-orphans`
+5. Check status/logs:
+   - `docker compose ps`
+   - `docker compose logs -f app`
+
 ## Production Deployment (Without Docker)
 1. Frontend build:
    - `cd frontend && npm ci && npm run build`
